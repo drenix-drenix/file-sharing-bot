@@ -234,7 +234,7 @@ async def del_file(message: types.Message, state: FSMContext):
         mess_id = user_data['delete_file']
         all_types, all_ids, all_views, passwords = db.get_files_user(message.from_user.id)
         if number > len(all_ids):
-            await bot.send_message(chat_id=message.chat.id, text='⚠️ Такого файла не существует. 🔢 Введи номер файла:', reply_markup=kb.delete_back())
+            await bot.send_message(chat_id=message.chat.id, text='⚠️ Такого файла не существует.      🔢 Введи номер файла:', reply_markup=kb.delete_back())
         else:
             db.delete_file(all_ids[(number-1)][0])
             await bot.delete_message(message.chat.id, mess_id)
